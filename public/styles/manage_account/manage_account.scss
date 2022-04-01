@@ -1,0 +1,244 @@
+@import "../basics/basics";
+@import "../navbar";
+
+.nav-sort {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+  &-items {
+    display: flex;
+    button {
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: white;
+      border: none;
+      color: $primary;
+    }
+    button:hover {
+      background-image: linear-gradient(white, rgb(241, 241, 241));
+    }
+    .active {
+      color: $link-color;
+      border-bottom: 2px solid $link-color;
+    }
+    #add_user {
+      color: royalblue;
+      margin-left: 40px;
+    }
+  }
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: $border;
+  }
+}
+
+.accounts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 20px 0;
+  @include mobile{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:2px;
+  }
+  .account-item {
+    transition: all 0.3s;
+    a{
+      text-decoration: none;
+      color: $primary;
+      cursor: pointer;
+      width: 180px;
+      height: 250px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 30px 0 rgba(71, 71, 71, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .profile_img {
+        margin-top: 20px;
+        aspect-ratio: 1;
+        width: 50%;
+        height: auto;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .profile_info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .role {
+          text-transform: capitalize;
+        }
+        .name {
+          font-weight: 700;
+        }
+      }
+      .divider {
+        width: 100%;
+        height: 1px;
+        background-color: $border;
+      }
+      .profile_news {
+        width: 100%;
+        button {
+          cursor: pointer;
+          width: 100%;
+          padding: 20px 0;
+          border: none;
+          background-color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.5s ease;
+          border-radius: 0px 0px 10px 10px;
+          .circle {
+            border-radius: 50%;
+            background-color: rgb(0, 211, 0);
+            width: 5px;
+            height: 5px;
+            margin-right: 10px;
+          }
+          .button {
+            font-weight: 800;
+          }
+        }
+        button:hover {
+          background-color: rgb(248, 248, 248);
+        }
+      }
+    }
+  }
+  .account-item:hover {
+    transform: scale(1.04);
+  }
+}
+
+.compagnies_accounts {
+  margin: 40px 0 20px 0;
+  .header {
+    width: 90%;
+    display: flex;
+    margin-bottom: 40px;
+    align-items: center;
+    gap: 50px;
+    a {
+      color: $secondary;
+    }
+  }  
+  .compagnies-container {
+    @include mobile{
+      justify-content: center;
+       }
+   
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    .company_item {
+      cursor: pointer;
+      width: 250px;
+      height: 300px;
+      background-size: 30%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: fill;
+      
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+
+      transition: all 0.3s;
+    }
+    .company_item:hover {
+      transform: translate(0, -10px);
+      box-shadow: 0 15px 10px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.modal {
+  margin-right: 5%;
+  padding-top: 50px;
+  .input_item:first-child {
+    margin-top: 20px;
+  }
+  .input_item {
+    padding: 30px 20px;
+    border-top: 1px solid $border;
+    display: flex;
+    gap: 20px;
+    .label {
+      width: 30%;
+    }
+    .input_container {
+      display: flex;
+      align-items: center;
+      border: 2px solid $border;
+      border-radius: 5px;
+      width: 45%;
+      height: 50px;
+      .separator_line {
+        height: 100%;
+        width: 1px;
+        background-color: $border;
+      }
+      p,
+      span {
+        margin: 10px;
+        color: $secondary;
+      }
+      input {
+        width: 100%;
+        @extend %button;
+        height: 100%;
+        margin: 0 10px;
+        outline: none;
+        border: none;
+      }
+    }
+    .input_container-photo {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      img {
+        aspect-ratio: 1;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      input[type="file"] {
+        visibility: hidden;
+      }
+      label {
+        cursor: pointer;
+        color: $link-color;
+        background-color: transparent;
+        border: none;
+      }
+      label :hover {
+        color: $link-color-hover;
+      }
+    }
+  }
+  button[type="submit"] {
+    float: right;
+    cursor: pointer;
+    margin: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 60px;
+    color: white;
+    background-color: rgb(58, 92, 204);
+  }
+  button[type="submit"]:hover {
+    background-color: rgb(36, 75, 206);
+  }
+}
+.password_btn {
+  cursor: pointer;
+  user-select: none;
+}

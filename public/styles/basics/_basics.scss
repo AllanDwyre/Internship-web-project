@@ -1,0 +1,73 @@
+@import "animations";
+@import "colors";
+@import "media-queries";
+@import "textFont";
+@import "constants";
+@import "../snackbar";
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  // width: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(43, 43, 43);
+  // border-radius: 10px;
+  // border: 4px solid white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(128, 128, 128);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  letter-spacing: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+  &-text {
+    opacity: 0.7;
+    animation: skeleton-loading 1s linear infinite alternate;
+    width: 100%;
+    height: 0.5rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.125rem;
+  }
+  &-text:last-child {
+    width: 80%;
+    margin-bottom: 0;
+  }
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+// * REMOVE CROSS ICON ON SEARCH INPUT
+::-webkit-search-decoration,
+::-webkit-search-cancel-button,
+::-webkit-search-results-button,
+::-webkit-search-results-decoration {
+  display: none;
+}

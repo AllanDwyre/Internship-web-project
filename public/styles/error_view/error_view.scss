@@ -1,0 +1,34 @@
+@import "../basics/basics";
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50%;
+  img {
+    width: 400px;
+    height: auto;
+  }
+  a {
+    padding: 15px 30px;
+    border-radius: 5px;
+
+    text-decoration: none;
+    color: $primary;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+  }
+  a:hover {
+    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}

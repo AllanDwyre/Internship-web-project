@@ -1,0 +1,337 @@
+@import "../basics/basics";
+@import "../navbar";
+
+.profile_nav {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+  &-items {
+    display: flex;
+
+    button {
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: white;
+      border: none;
+      color: $primary;
+    }
+    button:hover {
+      background-image: linear-gradient(white, rgb(241, 241, 241));
+    }
+    .active {
+      color: $link-color;
+      border-bottom: 2px solid $link-color;
+    }
+    #log_out {
+      margin-left: 30px;
+      color: rgb(250, 77, 77);
+    }
+    #log_out:hover {
+      color: rgb(204, 58, 58);
+      background-image: linear-gradient(white 15%, rgba(255, 96, 96, 0.1));
+      border-bottom: 2px solid rgb(204, 58, 58);
+    }
+    #log_out.active {
+      color: rgb(204, 58, 58);
+      border-bottom: 2px solid rgb(204, 58, 58);
+    }
+  }
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: $border;
+  }
+  @include mobile{
+    display:none;
+  }
+}
+.details_section,
+.password_section {
+  display: none; // Display none as default for tabs
+  @include mobile{
+    display:block;
+  }
+}
+
+.profile_info {
+  margin-top: 20px;
+  display: flex;
+  width: 50vw;
+  gap: 50px;
+  @include mobile{
+    display:block;
+    width: 100%;
+    text-align: center;
+  }
+  .profile_picture {
+    object-fit: cover;
+    aspect-ratio: 1;
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .role {
+    text-transform: capitalize;
+  }
+  .name {
+    font-weight: 600;
+  }
+  .objectif {
+    margin-top: 20px;
+    // width: 50%;
+    span {
+      color: rgb(41, 109, 236);
+    }
+  }
+
+  .overhaul {
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    @include mobile{
+      display:none;
+    }
+    &-item {
+      height: 100%;
+      cursor: pointer;
+      padding: 15px 30px;
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+      a {
+        height: 100%;
+        text-decoration: none;
+        color: $primary;
+        p:first-child {
+          font-weight: 600;
+        }
+      }
+    }
+    &-item:first-child,
+    &-item:last-child {
+      border-right: 1px solid $border;
+      border-left: 1px solid $border;
+    }
+    &-item:hover {
+      background-color: rgba($color: #666666, $alpha: 0.1);
+    }
+  }
+}
+.wishlist {
+  margin-top: 80px;
+  .split {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    &-left {
+      width: 70%;
+      @include tablet {
+        width: 100%;
+      }
+    }
+    &-right {
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        position: sticky;
+        max-width: 100%;
+        height: auto;
+      }
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+  &-item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in;
+    width: 90%;
+    @include tablet {
+      width: 100%;
+    }
+    &-content {
+      color: $secondary;
+      display: grid;
+      grid-template-columns: .5fr repeat(4,1fr) 50px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+      width: 100%;
+      .logo-img {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        background-size: 40%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: fill;
+      }
+      .wishlist-information {
+        width: 50%;
+        text-transform: capitalize;
+
+        p:first-child {
+          color: $primary;
+          text-transform: uppercase;
+        }
+      }
+  
+      .remove-btn {
+        color: $secondary;
+        padding: 5px;
+        transition: all 0.3s;
+      }
+      .remove-btn:hover {
+        color: $primary;
+        transform: scale(1.1);
+      }
+      @include mobile{
+      grid-template-columns: repeat(4,1fr) 50px;
+        .logo-img {
+          display: none;
+        }
+      }
+    }
+    .separationLine {
+      width: 100%;
+      height: 1px;
+      background-color: $border;
+    }
+  }
+  &-item:hover {
+    background-color: rgb(248, 248, 248);
+  }
+}
+
+.wishlist-no_content {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 60%;
+  }
+}
+.details_section,
+.password_section {
+  margin-right: 5%;
+  .input_item:first-child {
+    margin-top: 20px;
+  }
+  .input_item {
+    padding: 30px 20px;
+    border-top: 1px solid $border;
+    display: flex;
+    gap: 20px;
+    .label {
+      width: 30%;
+    }
+    .input_container {
+      display: flex;
+      align-items: center;
+      border: 2px solid $border;
+      border-radius: 5px;
+      width: 45%;
+      height: 50px;
+      .separator_line {
+        height: 100%;
+        width: 1px;
+        background-color: $border;
+      }
+      p,
+      span {
+   
+        margin: 10px;
+        color: $secondary;
+      }
+      input {
+        width: 100%;
+        @extend %button;
+        height: 100%;
+        margin: 0 10px;
+        outline: none;
+        border: none;
+      }
+    }
+    .input_container-photo {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      img {
+        aspect-ratio: 1;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      input[type="file"] {
+        visibility: hidden;
+      }
+      label {
+        cursor: pointer;
+        color: $link-color;
+        background-color: transparent;
+        border: none;
+      }
+      label :hover {
+        color: $link-color-hover;
+      }
+    }
+    @include mobile{
+      padding: 30px 0;
+      display:block;
+      .label {
+        width: 100%;
+        margin: 5px;
+      }
+      .input_container{
+        width: 100%;
+      }
+      .input_container-photo{
+        display:block;
+        text-align: center;
+      }
+      }
+  }
+  button[type="submit"] {
+    float: right;
+    cursor: pointer;
+    margin: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 60px;
+    color: white;
+    background-color: rgb(58, 92, 204);
+    @include mobile{
+      width: 100%;
+      margin: 5px;
+      }
+  }
+  button[type="submit"]:hover {
+    background-color: rgb(36, 75, 206);
+  }
+}
+.password_btn {
+  cursor: pointer;
+  user-select: none;
+}
+
+#profile_logout{
+  #log_out{
+    display: none;
+    @include mobile{
+      margin: 50px 0;
+      display: block;
+      color: white;
+      background-color: rgb(194, 64, 64);
+      border-radius: 5px;
+      padding: 15px 60px;
+      border: none;
+      width : 100%;
+    }
+  }
+}

@@ -1,0 +1,611 @@
+@import "../Basics/basics";
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #474747;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(43, 43, 43);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(185, 185, 185);
+}
+
+body {
+  user-select: none;
+  background: radial-gradient(circle, rgb(41, 41, 41) 20%, rgb(0, 0, 0) 100%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  @include tablet {
+    background-attachment: scroll;
+  }
+  width: 100vw;
+}
+nav {
+  z-index: 30;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  .nav-items {
+    justify-content: space-around;
+
+    width: 100%;
+    padding-top: 5px;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    a {
+      display: inline-block;
+      padding: 10px 20px;
+      color: rgb(212, 212, 212);
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+      .line {
+        height: 2px;
+        background: white;
+        width: 0px;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    a:hover {
+      color: white;
+      .line {
+        width: 100%;
+      }
+    }
+
+    .shortcuts {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @include tablet {
+    display: none;
+  }
+}
+.header {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/images/home_header.webp");
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  @include tablet {
+    background-attachment: scroll;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .split_left {
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include tablet {
+      width: 100vw;
+      height: fit-content;
+    }
+    @include mobile {
+      .header-title {
+        transform: scale(0.6);
+      }
+    }
+    .article-cards {
+      width: 60%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 50px;
+      @include tablet {
+        justify-content: space-around;
+      }
+      @include mobile {
+        flex-direction: column;
+      }
+      a {
+        transition: all 0.4s ease;
+        text-decoration: none;
+        article {
+          width: 250px;
+          height: 120px;
+          padding: 15px;
+          background-color: rgba(255, 255, 255, 0.4);
+          border: 1px solid white;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          p {
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+      a:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .split_right {
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding-right: 50px;
+    @include tablet {
+      width: 100vw;
+      height: fit-content;
+      align-items: center;
+    }
+    aside {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-around;
+      height: 50%;
+      @include tablet {
+        width: 100vw;
+        flex-direction: row;
+        height: fit-content;
+        justify-content: space-around;
+        align-items: center;
+      }
+      div {
+        text-align: end;
+        @include tablet {
+          text-align: center;
+        }
+        transition: all 0.3s ease-in-out;
+        .heading6 {
+          font-weight: 600;
+        }
+        p {
+          font-weight: 300;
+          @include mobile {
+            width: 20px;
+            text-align: center;
+          }
+        }
+      }
+      div:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .arrow_down {
+    position: absolute;
+    bottom: 5vh;
+    right: 50%;
+    left: 50%;
+    font-size: 32px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.about_us {
+  &-staff {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 80px 0;
+    gap: 20px;
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      padding: 40px 0;
+      gap: 50px;
+    }
+    &-image {
+      position: relative;
+      width: 50px;
+      height: 400px;
+      @include tablet {
+        width: 50vw;
+        height: fit-content;
+      }
+      @include mobile {
+        position: static;
+      }
+      transition: all 0.8s ease;
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        border-radius: 5px;
+        opacity: 0.7;
+        transition: all 0.8s ease;
+        @include tablet {
+          position: static;
+          width: 50vw;
+          height: 50vw;
+        }
+      }
+      p {
+        position: absolute;
+        opacity: 0;
+        top: 25px;
+        left: 20px;
+        @include mobile {
+          position: static;
+        }
+        @include tablet {
+          opacity: 1;
+        }
+      }
+      h6 {
+        position: absolute;
+        text-transform: uppercase;
+        white-space: nowrap;
+        writing-mode: vertical-rl;
+        bottom: 20px;
+        @include mobile {
+          position: static;
+          writing-mode: horizontal-tb;
+          white-space: normal;
+        }
+      }
+    }
+  }
+
+  &-info {
+    height: 80vh;
+    background-image: url("../../assets/images/about_us.webp");
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include tablet {
+      height: fit-content;
+      padding: 20px;
+    }
+    @include mobile {
+      background-attachment: scroll;
+    }
+    &-cards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      @include tablet {
+        flex-direction: column;
+      }
+    }
+    &-card {
+      width: 300px;
+      height: 300px;
+      text-align: center;
+      background-color: rgba(116, 116, 116, 0.6);
+      padding: 25px 40px;
+      border: 1px solid white;
+      border-radius: 5px;
+      transition: all 0.3s;
+      @include tablet {
+        width: 70vw;
+        height: 20vh;
+      }
+    }
+    &-card:hover {
+      transform: scale(1.1);
+    }
+  }
+  &-title {
+    padding: 40px 60px;
+  }
+}
+.companies {
+  padding: 40px 60px;
+  @include tablet {
+    padding: 40px 2vw;
+  }
+  .center-companies {
+    display: flex;
+    justify-content: center;
+  }
+  &-grid {
+    margin: 20px;
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+
+    @include tablet {
+      row-gap: 10px;
+      column-gap: 0px;
+      justify-content: space-around;
+    }
+    @include mobile {
+      margin: 0;
+    }
+  }
+  &-card {
+    background-color: transparent;
+    perspective: 1000px;
+    cursor: pointer;
+    width: 200px;
+    height: 300px;
+    border: none;
+
+    transition: all 0.8s ease;
+
+    @include tablet {
+      width: 300px;
+      height: 200px;
+    }
+    @include mobile {
+      aspect-ratio: 1.1;
+      width: 50%;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        backface-visibility: hidden;
+      }
+      .flip-card-front {
+        background-size: 30%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: fill;
+        color: white;
+      }
+      .flip-card-back {
+        background-color: rgb(245, 245, 245);
+        padding: 5px;
+        text-transform: capitalize;
+        color: white;
+        transform: rotateY(180deg);
+      }
+    }
+  }
+  &-card:hover {
+    transform: scale(1.2);
+    @include tablet {
+      transform: scale(1);
+    }
+    .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+  }
+}
+.join-us {
+  background-image: url("../../assets/images/join_us.webp");
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include mobile {
+    background-attachment: scroll;
+  }
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(212, 212, 212);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    .line {
+      height: 2px;
+      background: white;
+      width: 0px;
+      transition: all 0.3s ease-in-out;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  a:hover {
+    color: white;
+    .line {
+      width: 100%;
+    }
+  }
+}
+
+footer {
+  height: 25vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @include mobile {
+    display: block;
+    height: fit-content;
+  }
+  .left,
+  .right {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    @include mobile {
+      width: 100vw;
+      gap: 0;
+    }
+    span {
+      color: rgb(41, 109, 236);
+    }
+    .links {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      a {
+        text-decoration: none;
+        color: white;
+        .line {
+          height: 2px;
+          background-color: white;
+          width: 0px;
+          transition: all 0.3s;
+        }
+      }
+      a:hover {
+        .line {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+// header {
+//   position: absolute;
+//   top: 20vh;
+//   left: 5vw;
+//   .title {
+//     font-weight: bold;
+//   }
+//   @include tablet {
+//     position: static;
+//     margin-top: 5vh;
+//     item-align: center;
+//     text-align: center;
+//     h2 {
+//       font-size: 2em;
+//     }
+//   }
+//   transition: all 0.3s ease-in-out;
+// }
+
+// header:hover {
+//   transform: scale(1.1);
+// }
+
+// img {
+//   position: absolute;
+//   object-fit: cover;
+//   top: 45vh;
+//   width: 70vw;
+//   height: 40vh;
+//   opacity: 0.7;
+//   @include tablet {
+//     position: static;
+//     width: 100vw;
+//     height: 50vh;
+//   }
+//   transition: opacity 0.5s ease-in-out;
+// }
+// img:hover {
+//   opacity: 1;
+// }
+// .btn {
+//   position: absolute;
+//   top: 25vh;
+//   right: 5vw;
+//   transition: all 0.3s ease-in-out;
+//   &-text {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     a {
+//       text-decoration: none;
+//       color: white;
+//       font-weight: 400;
+//       font-size: 34px;
+//       margin-right: 10px;
+//     }
+//     i {
+//       font-size: 34px;
+//     }
+//   }
+//   .line {
+//     width: 0px;
+//     height: 2px;
+//     background: white;
+//     transition: all 0.3s ease-in-out;
+//   }
+//   @include tablet {
+//     position: static;
+//     margin: 5vh;
+//   }
+// }
+// .btn:hover {
+//   transform: scale(1.1);
+//   .line {
+//     width: 100%;
+//   }
+// }
+
+// aside {
+//   margin: 40vh 5vw 0 0;
+//   display: flex;
+//   float: right;
+//   flex-direction: column;
+//   article {
+//     text-align: right;
+//     margin: 20px;
+//     h6 {
+//       opacity: 0.6;
+//     }
+//     transition: all 0.3s ease-in-out;
+//   }
+//   article:hover {
+//     transform: scale(1.1);
+//   }
+//   @include tablet {
+//     flex-direction: row;
+//     float: none;
+//     margin: 5vh 0;
+//     justify-content: space-evenly;
+//     article {
+//       text-align: center;
+//       margin: 10px;
+//     }
+//   }
+// }

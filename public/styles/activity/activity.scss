@@ -1,0 +1,65 @@
+@import "../basics/basics";
+@import "../navbar";
+
+.split {
+  display: flex;
+  height: auto;
+
+  .notification {
+    width: 50%;
+    height: 100%;
+  }
+  .right {
+    width: 50%;
+    height: 80vh;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  @include mobile{
+  display: block;
+  .right { display: none; }
+  }
+  .notification {
+    width: 100%;
+  }
+}
+
+.read {
+  opacity: 0.5;
+  border: none !important;
+
+  .actions {
+    display: none;
+  }
+}
+
+.notification {
+  margin: 5vh 0;
+  cursor: pointer;
+
+  &-info,
+  &-add_user {
+    margin: 20px 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid $border;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.4s ease-in-out;
+  }
+  &-add_user:hover,
+  &-info:hover {
+    transform: scale(1.01) translate(-5px, 0);
+    box-shadow: 5px 15px 15px 0 rgba(128, 128, 128, 0.1);
+  }
+}
+
+.high_emphasis {
+  color: $link-color;
+}

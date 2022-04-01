@@ -1,0 +1,170 @@
+@import "../basics/basics";
+
+body {
+  background: #212121;
+  color: $white;
+}
+
+img {
+  cursor: pointer;
+  position: absolute;
+  object-fit: cover;
+  right: 0vw;
+  width: 50vw;
+  height: 100vh;
+  opacity: 1;
+  z-index: 10;
+  transition: right 0.5s ease-in-out;
+  @include tablet {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.1;
+  }
+}
+
+.split {
+  display: flex;
+  height: 100vh;
+  &-left,
+  &-right {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10vh 5vw 2vh 5vw;
+    header h5 {
+      margin-top: 5vh;
+    }
+    @include tablet {
+      margin: 2vh 5vw;
+      width: 100vw;
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+      }
+      h4 {
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+      }
+    }
+  }
+  &-right {
+    opacity: 0;
+    @include tablet {
+      display: none;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      margin: 2vh 0;
+      border-radius: 5px;
+      padding: 15px 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: $white;
+      border: 1px solid #6a6a6a;
+      transition: all 0.3s ease;
+    }
+    input:focus {
+      padding: 20px;
+      border: 1px solid #6a6a6a;
+      outline: 1px solid #6a6a6a;
+    }
+    input[placeholder] {
+      color: $white;
+      // @extend %button;
+    }
+    button {
+      cursor: pointer;
+      margin-top: 5vh;
+      height: 80px;
+      border: none;
+      border-radius: 5px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      background: $white;
+      transition: all 0.3s;
+    }
+    button:hover,
+    button:focus {
+      background: rgb(214, 213, 213);
+    }
+    a {
+      text-align: end;
+      color: $white;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .criteria {
+      margin: 10px 0;
+      display: flex;
+      color: $secondary;
+      font-size: 0.9rem;
+      align-items: center;
+      .circle {
+        margin-right: 10px;
+        padding: 2px;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        border: 1px solid $primary;
+        transition: all 0.5s ease;
+        i {
+          display: flex;
+          justify-content: center;
+          margin: auto;
+          font-size: 0.8rem;
+          color: $white;
+        }
+      }
+    }
+  }
+  .registration-toggle {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 1vh;
+    padding: 5px 2px;
+    text-align: center;
+
+    color: $secondary;
+    span {
+      color: $white;
+    }
+  }
+  .registration-toggle:hover {
+    text-decoration: underline;
+  }
+}
+
+// button[type="submit"] {
+//   color: black;
+
+//   text-align: center;
+//   transition: all 0.5s;
+//   span {
+//     color: black;
+//   }
+// }
+// button[type="submit"] span:after {
+//   content: "\00bb";
+//   position: absolute;
+//   opacity: 0;
+//   top: 0;
+//   right: -20px;
+//   transition: 0.5s;
+//   color: black;
+// }
+// button[type="submit"]:hover span {
+//   padding-right: 25px;
+// }
+// button[type="submit"]:hover span:after {
+//   opacity: 1;
+//   right: 0;
+// }
